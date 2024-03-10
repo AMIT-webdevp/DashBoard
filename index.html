@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        .chatbox-container {
+            position: relative;
+            display: inline-block;
+            margin: 20px;
+        }
+        .chatbox {
+            width: 350px;
+            height: 430px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999; /* Ensure the chatbox appears above other elements */
+            display: none;
+        }
+        #chat-img {
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999; /* Ensure the image appears above other elements */
+        }
+    </style>
+</head>
+<body>
+  <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <div class="chatbox-container">
+        <img id="chat-img" src="chatbox.png" alt="Chatbot" width="100px" >
+        <iframe class="chatbox" width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/3a5b0e63-a4d4-476f-89c3-a674cd047e1f"></iframe>
+    </div>
+
+    <script>
+        document.getElementById('chat-img').addEventListener('click', function() {
+            var chatbox = document.querySelector('.chatbox');
+            chatbox.style.display = (chatbox.style.display === 'block') ? 'none' : 'block';
+        });
+    </script>
+</body>
+</html>
